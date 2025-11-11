@@ -1,0 +1,21 @@
+{
+  "version": "4",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "Docker_STATUS",
+        "instance": "node-192.168.1.100",
+        "name": "nginx",
+        "severity": "warning"
+      },
+      "annotations": {
+        "summary": "节点node-192.168.1.100容器异常",
+        "description": "容器nginx未上报状态超过30秒，可能已停止或网络中断，请核查。"
+      },
+      "startsAt": "2025-11-11T10:30:00Z",
+      "endsAt": "0001-01-01T00:00:00Z"
+    }
+  ]
+}
