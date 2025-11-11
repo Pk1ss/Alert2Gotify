@@ -51,3 +51,25 @@ receivers:
 ```bash
 curl -X POST http://localhost:9407/webhook   -H "Content-Type: application/json"   -d @test.json
 ```
+
+### 6.使用systemd管理
+```bash
+sudo nano /etc/systemd/system/alert2gotify.service
+```
+
+```bash
+[Unit]
+Description=Alertmanager to Gotify Webhook
+After=network.target
+[Service]
+Type=simple
+# 配置环境变量（Gotify 地址、令牌等）
+Environment="GOTIFY_URL=http://10.10.11.1:9406"
+Environment="GOTIFY_TOKEN=AkBKingi2FPq86o"
+Environment="LISTEN_PORT=9407"
+# 程序路径（编译后的可执行文件）
+ExecStart=/opt/shell/Alert2Gotify/alert2gotify
+Restart=always  # 程序崩溃后自动重启
+[Install]
+WantedBy=multi-user.target
+```
